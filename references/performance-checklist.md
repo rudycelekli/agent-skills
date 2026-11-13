@@ -47,7 +47,7 @@ When TTFB is slow (> 800ms), check each component in DevTools Network waterfall:
 - [ ] `useMemo()` / `useCallback()` only where profiling shows benefit
 - [ ] Long tasks (> 50ms) broken up to keep the main thread available — main lever for INP
 - [ ] `yieldToMain` pattern used inside long-running loops so input events can run between chunks
-- [ ] Modern scheduling APIs used where available: `scheduler.yield()` (preferred), `scheduler.postTask()` with priorities, `isInputPending()` to yield only when needed
+- [ ] Modern scheduling APIs used where available: `scheduler.yield()` (preferred), `scheduler.postTask()` with priorities. Yield whether or not input is pending; `isInputPending()` is deprecated and can return false while input is waiting
 - [ ] `requestIdleCallback` for deferrable, non-urgent work (analytics flush, prefetch, warmup)
 - [ ] Non-critical work deferred out of event handlers (e.g. analytics, logging) so the response to the interaction is not delayed
 - [ ] Third-party scripts loaded with `async` / `defer`, audited for size, and fronted by a facade when heavy (chat widgets, embeds)
