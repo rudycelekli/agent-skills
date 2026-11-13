@@ -217,8 +217,10 @@ test('user can create and complete a task', async ({ page }) => {
   await expect(task).toBeVisible();
 
   // Complete the task
-  await task.getByRole('checkbox', { name: /complete buy groceries/i }).check();
-  await expect(task).toHaveCSS('text-decoration-line', 'line-through');
+  // The checkbox's name ("Complete: Buy groceries") includes the title text.
+  // text-decoration-line isn't inherited, so assert on the struck-through title.
+  await task.getByRole('checkbox', { name: /buy groceries/i }).check();
+  await expect(task.getByText(/buy groceries/i)).toHaveCSS('text-decoration-line', 'line-through');
 });
 ```
 
