@@ -72,7 +72,7 @@ Create a rules file that persists across sessions. This is the highest-leverage 
 ```
 
 **Equivalent files for other tools:**
-- `.cursorrules` or `.cursor/rules/*.md` (Cursor)
+- `.cursorrules` or `.cursor/rules/*.mdc` (Cursor)
 - `.windsurfrules` (Windsurf)
 - `.github/copilot-instructions.md` (GitHub Copilot)
 - `AGENTS.md` (OpenAI Codex)
