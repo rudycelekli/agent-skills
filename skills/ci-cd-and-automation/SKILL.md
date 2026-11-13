@@ -265,6 +265,7 @@ jobs:
       - name: Rollback deployment
         env:
           VERSION: ${{ inputs.version }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           # Deploy the specified previous version. Pass the input through env,
           # never interpolate it into the script (shell injection).
